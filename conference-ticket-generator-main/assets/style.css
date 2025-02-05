@@ -1,0 +1,16 @@
+* {
+    font-family: inconsolata, sans-serif;
+    margin: 0 auto;
+}
+
+h1 {
+    width: 40vw;
+    margin: 0 auto;
+    text-align: center  ;
+    color: white;
+}
+
+body {
+    background-image: url('images/background-desktop.png');
+    background-size: 100%;
+}
