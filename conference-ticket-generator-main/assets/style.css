@@ -4,13 +4,95 @@
 }
 
 h1 {
-    width: 40vw;
+    width: 45vw;
     margin: 0 auto;
     text-align: center  ;
     color: white;
+    font-size: 3vw;
 }
 
 body {
-    background-image: url('images/background-desktop.png');
-    background-size: 100%;
+    background-image: url("/assets/images/pattern-lines.svg"), url("/assets/images/pattern-squiggly-line-top.svg"), url("/assets/images/background-desktop.png") ;
+    background-size: cover, 40vw, cover;
+    background-repeat: no-repeat;
+    background-position: center, 62vw 5vh, center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
 }
+
+#logo {
+    width: 40vw;
+    margin: 0 auto;
+    margin-bottom: 2vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    height: 10vh;
+}
+
+#form-container {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    height: 80vh;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.header {
+    margin-bottom: 2.5vh;
+}
+
+.description {
+    color: rgb(200, 197, 215);
+    text-align: center;
+    margin-bottom: 5vh;
+    font-size: 1.4vw;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    margin: 0 auto;
+}
+
+p {
+    color: rgb(200, 197, 215);
+}
+
+#avatar {
+  color: blue;
+    margin: 0 auto;
+}
+
+#custom-avatar-button {
+    background-color: rgba(200, 197, 215, .3);
+    width: 100%;
+    height: 12vh;
+    border: dashed 2px rgb(200, 197, 215) ;
+    color: white;
+    padding: 1px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 0.6em;
+}
+
+#custom-avatar-button > div {
+    border: 1px solid rgba(200, 197, 215, .3);
+    background-color: rgba(200, 197, 215, .3);
+    border-radius: 0.5em;
+    width: 3.5vw;
+    height: 3.5vh;
+    padding-top: .5vh;
+}
+
+#ticket {
+    display: none;
+  }

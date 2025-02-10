@@ -2,61 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/style.css">
-  
-  <title>Frontend Mentor | Conference ticket generator</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coding Conf 2025</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-
   <!-- Form starts -->
-
-  <h1>Your Journey to Coding Conf</h1>
-        <h1>2025 Starts Here!</h1>
-
-  Secure your spot at next year's biggest coding conference.
-
-  Upload Avatar
-  Drag and drop or click to upload
-  Upload your photo (JPG or PNG, max size: 500KB).
-
-  Full Name
-
-  Email Address
-  example@email.com
-
-  GitHub Username
-  @yourusername
-
-  Generate My Ticket
-
+   <div id="logo">
+    <img src="assets/images/logo-full.svg" alt="logo">
+   </div>
+   <div id="form-container">
+    <div class="header">
+      <h1>Your Journey to Coding Conf</h1>
+      <h1>2025 Starts Here!</h1>
+    </div>
+    <div class="description">
+        <p>Secure your spot at next year's biggest coding conference.</p>
+    </div> 
+    <div id="form">
+      <form id="registration-form">
+        <label for="avatar"><p>Upload Avatar</p></label>
+        <input type="file" id="avatar" accept="image/jpeg, image/png" style="display: none;"/>
+        <button type="button" id="custom-avatar-button">
+                   <div>
+                    <img src="assets/images/icon-upload.svg" alt="Upload Icon">
+                   </div> 
+          <p>Drag and drop or click to upload</p>
+        </button>
+        <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
+    
+        <label for="fullName"><p>Full Name</p></label>
+        <input type="text" id="fullName" name="fullName" />
+    
+        <label for="email"><p>Email Address</p></label>
+        <input type="email" id="email" name="email" />
+    
+        <label for="githubUsername"><p>GitHub Username</p></label>
+        <input type="text" id="githubUsername" name="githubUsername" />
+    
+        <button type="submit">Generate My Ticket</button>
+    </form> 
+    </div>
+  </div>
   <!-- Form ends -->
 
   <!-- Generated tickets starts -->
-
-  Congrats, <!-- Full Name -->! Your ticket is ready.
-
-  We've emailed your ticket to <!-- Email Address --> and will send updates in the run up to the event.
-
-  Coding Conf
-  Jan 31, 2025 / Austin, TX
-
+  <div id="ticket">
+    <div>
+       <h1>Congrats, <span id="displayFullName"></span></h1>
+       <h1>! Your ticket is ready.</h1>
+    </div>
+    <p>We've emailed your ticket to <span id="displayEmail"></span> and will send updates in the run up to the event.</p>
+    <p>Coding Conf<br>Jan 31, 2025 / Austin, TX</p>
+    <img src="" alt="Avatar" id="avatarDisplay" />
+    <p id="name"></p>
+    <p id="github"></p>
+  </div>
   <!-- Generated tickets ends -->
-  
+
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">Gerren Ballard</a>.
   </div>
+
+  <script>
+    document.getElementById('registration-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get form values
+      const fullName = document.getElementById('fullName').value;
+      const email = document.getElementById('email').value;
+      const githubUsername = document.getElementById('githubUsername').value;
+      const avatar = document.getElementById('avatar').files[0];
+
+      // Update ticket information
+      document.getElementById('displayFullName').textContent = fullName;
+      document.getElementById('displayEmail').textContent = email;
+      document.getElementById('avatarDisplay').src = URL.createObjectURL(avatar);
+      document.getElementById('name').textContent = fullName;
+      document.getElementById('github').textContent = `@${githubUsername}`;
+
+      
+      // Hide form and show ticket
+      document.getElementById('form-container').style.display = 'none';
+      document.getElementById('ticket').style.display = 'block';
+    });
+  </script>
 </body>
 </html>
